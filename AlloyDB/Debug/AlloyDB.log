@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+  About.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
+  AlloyDB.vcxproj -> D:\Документы\Code\AlloyDB\Debug\AlloyDB.exe
+  AlloyDB.vcxproj -> D:\Документы\Code\AlloyDB\Debug\AlloyDB.pdb (Partial PDB)

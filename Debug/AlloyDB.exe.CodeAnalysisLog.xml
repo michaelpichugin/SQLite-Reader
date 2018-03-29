@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\microsoft visual studio\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="D:\Документы\Code\AlloyDB\Debug\AlloyDB.exe">
+   <Modules>
+    <Module Name="alloydb.exe">
+     <Messages>
+      <Message TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016" Status="Active" Created="2017-06-17 13:40:12Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Добавьте атрибут AssemblyVersion в 'AlloyDB.exe'.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="VectorI" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#AddRow(System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Проверка запросов SQL на уязвимости безопасности" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-06-17 13:40:12Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\документы\code\alloydb\alloydb" File="vector.h" Line="136">Строка запроса, переданная 'SQLiteCommand::CommandText::set(String^)' в 'VectorI::AddRow(String^, String^, String^, String^, String^, String^)', может содержать следующие переменные 'A_0', 'A_1', 'A_2', 'A_3', 'A_4', 'A_5'. Если любая из этих переменных может поступать из вводимых пользователем данных, рассмотрите возможность использования хранимой процедуры или параметризованного запроса SQL вместо сборки запроса с помощью конкатенации строк.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DelRow(System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Проверка запросов SQL на уязвимости безопасности" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2017-06-17 13:40:12Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="d:\документы\code\alloydb\alloydb" File="vector.h" Line="178">Строка запроса, переданная 'SQLiteCommand::CommandText::set(String^)' в 'VectorI::DelRow(int^, String^)', может содержать следующие переменные 'A_1'. Если любая из этих переменных может поступать из вводимых пользователем данных, рассмотрите возможность использования хранимой процедуры или параметризованного запроса SQL вместо сборки запроса с помощью конкатенации строк.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016">
+   <Name>Пометьте сборки с помощью AssemblyVersionAttribute</Name>
+   <Description>Сборки должны использовать номера версий. Номер версии считается частью идентификационных данных сборки. Отслеживание версий обеспечивается при помощи атрибута AssemblyVersion.</Description>
+   <Resolution Name="Default">Добавьте атрибут AssemblyVersion в {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182155.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Проверка запросов SQL на уязвимости безопасности" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Проверка запросов SQL на уязвимости безопасности</Name>
+   <Description>Командная строка SQL, создаваемая на основе введенных пользователем данных, уязвима к атакам типа "инъекция SQL". Microsoft SQL Server и другие серверы баз данных поддерживают хранимые процедуры и параметризованные SQL-запросы, что снижает риск атак путем внедрения.</Description>
+   <Resolution Name="WithNonLiterals">Строка запроса, переданная {0} в {1}, может содержать следующие переменные {2}. Если любая из этих переменных может поступать из вводимых пользователем данных, рассмотрите возможность использования хранимой процедуры или параметризованного запроса SQL вместо сборки запроса с помощью конкатенации строк.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Категория</String>
+  <String Key="Certainty">Достоверность</String>
+  <String Key="CollapseAll">Свернуть все</String>
+  <String Key="CheckId">ИД проверки</String>
+  <String Key="Error">Ошибка</String>
+  <String Key="Errors">ошибки</String>
+  <String Key="ExpandAll">Развернуть все</String>
+  <String Key="Help">Справка</String>
+  <String Key="Line">Строка</String>
+  <String Key="Messages">сообщения</String>
+  <String Key="LocationNotStoredInPdb">[расположение не сохранено в PDB]</String>
+  <String Key="Project">Проект</String>
+  <String Key="Resolution">Разрешение</String>
+  <String Key="Rule">Правило</String>
+  <String Key="RuleFile">Файл правил</String>
+  <String Key="RuleDescription">Описание правила</String>
+  <String Key="Source">Источник</String>
+  <String Key="Status">Состояние</String>
+  <String Key="Target">Цель</String>
+  <String Key="Warning">Предупреждение</String>
+  <String Key="Warnings">предупреждения</String>
+  <String Key="ReportTitle">Отчет по анализу кода</String>
+ </Localized>
+</FxCopReport>
